@@ -1,4 +1,3 @@
-
 Problem 1-1
 Suppose x = "pi" and y = "pie". The line of code x, y = y, x will swap the values of x and y, resulting in x = "pie" and y = "pi".
 Correct: True

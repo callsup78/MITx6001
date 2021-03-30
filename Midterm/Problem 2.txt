@@ -9,7 +9,6 @@ Correct: L maps strings to integers
 
 
 Problem 2-2
-
 Assume a break statement is executed inside a loop and that the loop is inside a function. Which of the following is correct?
 The program might immediately terminate.
 The function might immediately terminate.
