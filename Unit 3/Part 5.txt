@@ -1,0 +1,302 @@
+Exercise 1
+
+For each of the expressions below, specify its type and value. If it generates an error, select type 'NoneType' and put
+the word 'error' in the box for the value.
+
+Assume we've made the following assignment:
+
+x = (1, 2, (3, 'John', 4), 'Hi')
+
+Hints: Single Element Tuples
+
+x[0]
+Correct: int 1
+
+
+x[2]
+Correct: tuple (3, 'John', 4)
+
+
+x[-1]
+Correct: string Hi
+
+
+x[2][2]
+Correct: int 4
+
+
+x[2][-1]
+Correct: int 4
+
+
+x[-1][-1]
+Correct: string i
+
+
+x[-1][2]
+Correct: NoneType error
+
+
+x[0:1]
+Correct: tuple (1,)
+
+
+x[0:-1]
+Correct: tuple (1, 2, (3, 'John', 4))
+
+
+len(x)
+Correct: int 4
+
+
+2 in x
+Correct: boolean True
+
+
+3 in x
+Correct: boolean False
+
+
+x[0] = 8 
+Correct: NoneType error
+
+
+-----------
+Exercise: odd tuples
+
+def oddTuples(aTup):
+    '''
+    aTup: a tuple
+    
+    returns: tuple, every other element of aTup. 
+    '''
+    return aTup[0:len(aTup):2]
+    
+    
+-----------
+Exercise 2
+
+For each of the expressions below, specify its type and value. If it generates an error, select type 'NoneType' 
+and put the word 'error' in the box for the value.
+
+Assume we've made the following assignment:
+
+x = [1, 2, [3, 'John', 4], 'Hi'] 
+
+Additionally, assume that the expressions are evaluated in the order shown - that is, each problem part is evaluated 
+directly after the previous problem part(s).
+
+
+x[0]
+Correct: int 1
+
+
+x[2]
+Correct: list [3. 'John', 4]
+
+
+x[-1]
+Correct: string 'Hi'
+
+
+x[2][2]
+Correct: int 4 
+
+
+x[0:1]
+Correct: list [1]
+
+
+2 in x
+Correct: boolean True
+
+
+3 in x
+Correct: boolean False
+
+
+x[0] = 8
+x 
+Correct: list [8, 2, [3, 'John', 4], 'Hi']
+
+
+-----------
+Exercise 3
+
+For each of the expressions below, specify its type and value. If it generates an error, select type 'NoneType' and put 
+the word 'error' in the box for the value. If it would be a function, select type 'function' and put the word 'function' 
+in the box for the value.
+
+If the method returns None, select type 'NoneType' and put the word 'None' in the box for the value.
+
+Assume we've made the following assignments:
+
+> listA = [1, 4, 3, 0]
+> listB = ['x', 'z', 't', 'q']
+
+You may want to refer to the Python Library Reference to learn about list methods. Assume these calls appear one after 
+another (so if the list is modified in a question, that modification stays for subsequent questions).
+
+    
+listA.sort
+Correct: function function
+
+
+listA.sort()
+Correct: NoneType None
+
+
+listA
+Correct: list [0, 1, 3, 4]
+
+
+listA.insert(0, 100)
+Correct: NoneType None
+
+
+listA.remove(3)
+Correct: NoneType None
+
+
+listA.append(7)
+Correct: NoneType None
+
+
+listA
+Correct: list [100, 0, 1, 4, 7]
+
+
+listA + listB
+Correct: list [100, 0, 1, 4, 7, 'x', 'z', 't', 'q']
+
+
+listB.sort()
+listB.pop()
+Correct: string z
+
+
+listB.count('a')
+Correct: int 0
+
+
+listB.remove('a')
+Correct: NoneType error
+
+
+listA.extend([4, 1, 6, 3, 4])
+Correct: NoneType None
+
+
+listA.count(4)
+Correct: int 3
+
+
+listA.index(1)
+Correct: int 2
+
+
+listA.pop(4)
+Correct: int 7
+
+
+listA.reverse()
+Correct: NoneType None
+
+
+listA 
+Correct: list [4, 3, 6, 1, 4, 4, 1, 0, 100]
+
+
+-----------
+Exercise 4
+
+For the last expression in each question below, specify its type and value. If it generates an error, select type 
+'NoneType' and put the word 'error' in the box for the value.
+
+    >>> aList = [0, 1, 2, 3, 4, 5]
+    >>> bList = aList
+    >>> aList[2] = 'hello'
+    >>> aList == bList
+Correct: boolean True
+
+
+>>> aList is bList
+Correct: boolean True
+
+
+>>> aList
+Correct: list [0, 1, 'hello', 3, 4, 5]
+
+
+>>> bList
+Correct: list [0, 1, 'hello', 3, 4, 5]
+
+
+>>> cList = [6, 5, 4, 3, 2]
+>>> dList = []
+>>> for num in cList:
+        dList.append(num)
+>>> cList == dList
+Correct: boolean True
+
+
+>>> cList is dList
+Correct: boolean False
+
+
+>>> cList[2] = 20
+>>> cList
+Correct: list [6, 5, 20, 3, 2]
+
+
+>>> dList
+Correct: list [6, 5, 4, 3, 2]
+
+
+-----------
+Exercise: apply to each
+
+def applyToEach(L, f):
+    for i in range(len(L)):
+        L[i] = f(L[i])
+
+def evaluate(a):
+    return abs(a)
+ 
+applyToEach(testList, evaluate)
+
+
+-----------
+Exercise 5
+
+Here is a different piece of code for working with lists:
+
+def applyEachTo(L, x):
+    result = []
+    for i in range(len(L)):
+        result.append(L[i](x))
+    return result
+
+Suppose that you are given the following functions:
+
+def square(a):
+    return a*a
+
+def halve(a):
+    return a/2
+
+def inc(a):
+    return a+1
+
+For each of the following questions, indicate what value is returned. If you believe that an error will occur, write the word 'error'.
+
+applyEachTo([inc, square, halve, abs], -3)
+Correct: [-2, 9, -1.5, 3]     
+
+
+applyEachTo([inc, square, halve, abs], 3.0)
+Correct: [4.0, 9.0, 1.5, 3.0]
+
+
+applyEachTo([inc, max, int], -3)
+Correct: error

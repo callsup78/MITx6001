@@ -1,0 +1,93 @@
+Exercise 1
+
+Suppose we evaluate the following expressions:
+
+animals = {'a': 'aardvark', 'b': 'baboon', 'c': 'coati'}
+
+animals['d'] = 'donkey'
+
+We are now going to evaluate a set of expressions, resulting in the following sequence of interactions. Fill in each blank 
+to show what the Python interpreter would print at that point. If an expression below would generate an error, enter 'error'.
+
+>>> animals
+Correct: {'a': 'aardvark', 'b': 'baboon', 'c': 'coati', 'd': 'donkey'}
+
+>>> animals['c']
+Correct: coati 
+
+
+>>> animals['donkey']
+Correct: error    
+
+
+>>> len(animals)
+Correct: 4    
+
+
+>>> animals['a'] = 'anteater'
+>>> animals['a']
+Correct: anteater  
+
+
+>>> len(animals['a'])
+Correct: 8    
+
+
+>>> 'baboon' in animals
+Correct: False    
+
+
+>>> 'donkey' in animals.values()
+Correct: True
+
+
+>>> 'b' in animals
+Correct: True    
+
+
+>>> animals.keys()
+Correct: ['a','b','c','d']    
+
+
+>> del animals['b']
+>>> len(animals)
+Correct: 3     
+
+
+>>> animals.values()
+Correct: ['anteater', 'coati', 'donkey']    
+
+
+----------
+Exercise: how many
+
+def how_many(aDict):
+    '''
+    aDict: A dictionary, where all the values are lists.
+
+    returns: int, how many values are in the dictionary.
+    '''
+    animals=0
+    for i in aDict:
+        animals+=len(aDict[i])
+    return animals
+    
+    
+----------
+Exercise: biggest
+
+def biggest(aDict):
+    '''
+    aDict: A dictionary, where all the values are lists.
+
+    returns: The key with the largest number of values associated with it
+    '''
+    a = 0
+    result = None
+    if aDict == []:
+        return result
+    else:
+        for i in aDict.keys():
+            if len(aDict[i]) > a:
+                result = i
+    return result

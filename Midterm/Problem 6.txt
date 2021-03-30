@@ -1,0 +1,36 @@
+Problem 6
+You will not be able to see the test cases for this question. This will test your ability to come up with 
+your own test cases. 
+
+My Grade on this: 18.571428571428573/20.0 points (graded)
+
+Implement a function that meets the specifications below.
+
+def max_val(t): 
+    """ t, tuple or list
+        Each element of t is either an int, a tuple, or a list
+        No tuple or list is empty
+        Returns the maximum int in t or (recursively) in an element of t """ 
+    # Your code here
+
+For example,
+
+    max_val((5, (1,2), [[1],[2]])) returns 5.
+    max_val((5, (1,2), [[1],[9]])) returns 9.
+
+
+def max_val(t):
+    new_list = []
+
+    for a in t:
+        if type(a) == int:
+            new_list.append(a)
+        else:
+            for i in a:
+                if type(i) != int:
+                    for e in i:
+                        new_list.append(e)
+                else:
+                    new_list.append(i)
+
+    return (max(new_list))
