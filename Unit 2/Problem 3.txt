@@ -1,0 +1,18 @@
+beginBalance = balance
+mir = annualInterestRate/12
+mplb = beginBalance/12
+mpub = (beginBalance * (1 + mir)**12)/12.0
+epsilon = 0.03
+
+while abs(balance) > epsilon:
+    monthlyPaymentRate = (mpub + mplb)/2
+    balance = beginBalance
+    for i in range(12):
+        balance = balance - monthlyPaymentRate + ((balance - monthlyPaymentRate) * mir)
+    if balance > epsilon:
+        mplb = monthlyPaymentRate
+    elif balance < -epsilon:
+        mpub = monthlyPaymentRate
+    else:
+        break
+print('Lowest Payment:', round(monthlyPaymentRate, 2))

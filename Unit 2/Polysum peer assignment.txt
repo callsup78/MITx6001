@@ -1,0 +1,11 @@
+import math
+
+def polysum(n, s):
+    def polygonArea(n,s):
+        area = (0.25 * n * s ** 2)/math.tan(math.pi/n)
+        return area
+    def polygonPerim(n,s):
+        perimiter = n * s
+        return perimiter
+    sum = polygonArea(n,s) + (polygonPerim(n,s) ** 2)
+    return round(sum,4)

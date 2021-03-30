@@ -1,0 +1,13 @@
+monthlyPaymentRate = 0
+monthlyInterestRate = annualInterestRate/12
+beginBalance = balance
+
+while balance > 0:
+    for i in range(12):
+        balance = balance - monthlyPaymentRate + ((balance - monthlyPaymentRate) * monthlyInterestRate)
+    if balance > 0:
+        monthlyPaymentRate += 10
+        balance = beginBalance
+    elif balance <= 0:
+        break
+print(monthlyPaymentRate)
