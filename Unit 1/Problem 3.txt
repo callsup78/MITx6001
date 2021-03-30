@@ -1,0 +1,14 @@
+maxlist = 0
+alist = s[0]
+blist = s[0]
+
+for i in range(len(s) - 1):
+	if s[i+1] >= s[i]:
+		alist += s[i+1]
+		if len(alist) > maxlist:
+			maxlist = len(alist)
+			blist = alist
+	else:
+		alist = s[i+1]
+	i += 1
+print("The longest substring in alphabetical order is:" + blist)

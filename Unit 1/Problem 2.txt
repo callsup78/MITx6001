@@ -1,0 +1,7 @@
+counter = 0
+
+for i in range(len(s)):
+    if s[i:i+3] == "bob":
+        counter += 1
+
+print("Number of time(s) the string 'bob' appears: " + str(counter))

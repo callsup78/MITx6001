@@ -1,0 +1,542 @@
+Exercise 1
+
+For each of the following expressions, indicate the value returned, or if the evaluation would lead to an error, write the word 'error' (note this is a word, not a string, no quotes). While you could simply type these expressions into your IDE, we encourage you to answer them directly since this will help reinforce your understanding of basic Python expressions.
+
+Note: Advanced String Slicing
+
+You've seen in lecture that you can slice a string with a call such as s[i:j], which gives you a portion of string s from index i to index j-1. However this is not the only way to slice a string! If you omit the starting index, Python will assume that you wish to start your slice at index 0. If you omit the ending index, Python will assume you wish to end your slice at the end of the string. Check out this session with the Python shell:
+
+>>> s = 'Python is Fun!'
+>>> s[1:5]
+'ytho'
+>>> s[:5]
+'Pytho'
+>>> s[1:]
+'ython is Fun!'
+>>> s[:]
+'Python is Fun!'
+
+That last example is interesting! If you omit both the start and ending index, you see your original string!
+
+There's one other cool thing you can do with string slicing. You can add a third parameter, k, like this: s[i:j:k]. This gives a slice of the string s from index i to index j-1, with step size k. Check out the following examples:
+
+>>> s = 'Python is Fun!'
+>>> s[1:12:2]
+'yhni u'
+>>> s[1:12:3]
+'yoiF'
+>>> s[::2]
+'Pto sFn'
+
+The last example is similar to the example s[:]. With s[::2], we're asking for the full string s (from index 0 through 13), with a step size of 2 - so we end up with every other character in s. Pretty cool!
+
+"a" + "bc"	- abc 
+3 * "bc"	- bcbcbc
+"3" * "bc"	- error
+"abcd"[2]	- c
+"abcd"[0:2]	- ab
+"abcd"[:2]	- ab
+"abcd"[2:]	- cd
+
+
+-----------
+Exercise 2
+ 
+For each of the expressions below, specify its type and value. If it generates an error, select type 'NoneType' and write the word 'error' (note this is a word, not a string, no quotes) in the box for the value. While you could simply type these expressions into your IDE, we encourage you to answer them directly since this will help reinforce your understand of basic Python expressions.
+
+Assume we've made the following assignments:
+
+> str1 = 'hello'
+> str2 = ','
+> str3 = 'world'
+
+Note: Advanced String Slicing
+
+You've seen in lecture that you can slice a string with a call such as s[i:j], which gives you a portion of string s from index i to index j-1. However this is not the only way to slice a string! If you omit the starting index, Python will assume that you wish to start your slice at index 0. If you omit the ending index, Python will assume you wish to end your slice at the end of the string. Check out this session with the Python shell:
+
+>>> s = 'Python is Fun!'
+>>> s[1:5]
+'ytho'
+>>> s[:5]
+'Pytho'
+>>> s[1:]
+'ython is Fun!'
+>>> s[:]
+'Python is Fun!'
+
+That last example is interesting! If you omit both the start and ending index, you get your original string!
+
+There's one other cool thing you can do with string slicing. You can add a third parameter, k, like this: s[i:j:k]. This gives a slice of the string s from index i to index j-1, with step size k. Check out the following examples:
+
+>>> s = 'Python is Fun!'
+>>> s[1:12:2]
+'yhni u'
+>>> s[1:12:3]
+'yoiF'
+>>> s[::2]
+'Pto sFn'
+
+The last example is similar to the example s[:]. With s[::2], we're asking for the full string s (from index 0 through 13), with a step size of 2 - so we end up with every other character in s. Pretty cool!
+
+Note: The Python 'in' operator
+
+The operators in and not in test for collection membership (a 'collection' refers to a string, list, tuple or dictionary - don't worry, we will cover lists, tuples and dictionaries soon!). The expression
+
+element in coll
+
+evaluates to True if element is a member of the collection coll, and False otherwise.
+
+The expression
+
+element not in coll
+
+evaluates to True if element is not a member of the collection coll, and False otherwise.
+
+Note this returns the negation of element in coll - that is, the expression element not in coll is equivalent to the expression not (element in coll).
+
+
+str1		- string - hello
+str1[0]		- string - h
+str1[1]		- string - e
+str1[-1]	- string - o
+len(str1)	- int 	 - 5
+
+
+-----------
+Exercise 3
+
+For each of the following expressions, indicate the value that prints out when the expression is evaluated. If the evaluation would lead to an error, write the word 'error'; if nothing would print out, write the word 'blank'.
+
+While you could simply type these expressions into your IDE, we encourage you to answer them directly since this will help reinforce your understanding of basic Python expressions.
+
+If the temperatures seem weird to you, like most of the world, you probably use the Celsius system. We Americans still use the crazy Fahrenheit system... 
+
+if 6 > 7:
+   print("Yep")
+Correct: blank
+
+
+if 6 > 7:
+   print("Yep")
+else:
+   print("Nope")
+Correct: Nope
+
+
+var = 'Panda'
+if var == "panda":
+   print("Cute!")
+elif var == "Panda":
+   print("Regal!")
+else:
+   print("Ugly...")
+Correct: Regal!
+
+
+temp = 120
+if temp > 85:
+   print("Hot")
+elif temp > 100:
+   print("REALLY HOT!")
+elif temp > 60:
+   print("Comfortable") 
+else:
+   print("Cold")
+Correct: Hot
+
+
+temp = 50
+if temp > 85:
+   print("Hot")
+elif temp > 100:
+   print("REALLY HOT!")
+elif temp > 60:
+   print("Comfortable")
+else:
+   print("Cold")
+Correct: Cold
+
+
+-----------
+Exercise: hello world 
+Correct:  print("Hello world")
+
+
+-----------
+Exercise: happy
+Correct: if happy > 2:
+    	     print('hello world') 
+
+
+-----------
+Exercise: 4
+
+Below are some short Python programs. For each program, answer the associated question.
+
+Try to answer the questions without running the code. Check your answers, then run the code for the ones you get wrong.
+
+This question is going to ask you what some simple loops print out. If you're asked what code like this prints:
+
+num = 5
+if num > 2:
+    print(num)
+    num -= 1
+print(num)
+
+write what it prints out, separating what appears on a new line by a comma and a space. So the answer for the above code would be:
+
+5, 4
+
+If a given loop will not terminate, write the phrase 'infinite loop' (no quotes) in the box. Recall that you can stop an infinite loop in your program by typing CTRL+c in the console.
+
+
+num = 0
+while num <= 5:
+    print(num)
+    num += 1
+
+print("Outside of loop")
+print(num) 
+Correct: 0, 1, 2, 3, 4, 5, Outside of loop, 6
+
+
+numberOfLoops = 0
+numberOfApples = 2
+while numberOfLoops < 10:
+    numberOfApples *= 2
+    numberOfApples += numberOfLoops
+    numberOfLoops -= 1
+print("Number of apples: " + str(numberOfApples))
+Correct: infinite loop
+
+
+num = 10
+while num > 3:
+    num -= 1
+    print(num) 
+Correct: 9, 8, 7, 6, 5, 4, 3
+
+
+num = 10
+while True:
+    if num < 7:
+        print('Breaking out of loop')
+        break
+    print(num)
+    num -= 1
+print('Outside of loop')
+Correct: 10, 9, 8, 7, Breaking out of loop, Outside of loop
+
+
+num = 100
+while not False:
+    if num < 0:
+        break
+print('num is: ' + str(num)) 
+Correct: infinite loop
+
+
+-----------
+Exercise: while
+
+In this problem you'll be given a chance to practice writing some while loops.
+
+1. Convert the following into code that uses a while loop.
+
+prints 2
+prints 4
+prints 6
+prints 8
+prints 10
+prints Goodbye!
+
+Correct: 
+i = 2
+while i < 11:
+    print(i)
+    i += 2
+print('Goodbye!')
+
+
+-----------
+Exercise: for 
+
+In this problem you'll be given a chance to practice writing some for loops.
+
+1. Convert the following code into code that uses a for loop.
+
+prints 2
+prints 4
+prints 6
+prints 8
+prints 10
+prints Goodbye!
+Correct: 
+for i in range(2 ,11, 2):
+    print(i)
+print("Goodbye!")
+
+
+-----------
+Exercise 5
+
+Below are some short Python programs. For each program, answer the associated question.
+
+Try to answer the questions without running the code. Check your answers, then run the code for the ones you get wrong.
+
+This question is going to ask you what some simple loops print out. If you're asked what code like this prints:
+
+num = 5
+if num > 2:
+    print(num)
+    num -= 1
+print(num)
+
+write what it prints out, separating what appears on a new line by a comma and a space. So the answer for the above code would be:
+
+5, 4
+
+If a given loop will not terminate, write the phrase 'infinite loop' in the box.
+
+Note: Using the 'range' built-in function
+
+The standard way of using the range function is to give it a number to stop at, and range will give a sequence of values that start at 0 and go through the stop value minus 1. For example, calling range(stop) yields the following:
+
+>>> range(5)
+range(0,5)
+
+which is the sequence 0, 1, 2, 3, 4.
+
+However, we can call range with some additional, optional parameters - a value to start at, and a step size. You can specify a start value by calling range(start, stop), like this:
+
+>>> range(2, 5)
+range(2, 5)
+
+which is the sequence of values 2, 3, 4
+
+To specify a step size, you must specify a start value - the call is range(start, stop, stepSize), like this:
+
+>>> range(2, 10, 2)
+range(2, 10, 2)
+
+which gives the sequence of values 2, 4, 6, 8
+
+Note that these parameters - start, stop, stepSize - are the same parameters that you can use when slicing a string:
+
+>>> s = "Hello, world!"
+>>> s[1:] # s[start:]
+ello, world!
+>>> s[1:10] # s[start:stop]
+ello, wor
+>>> s[1:10:3] # s[start:stop:stepSize]
+eow
+
+In this problem you'll get more practice on using range. You can also see more examples of 'range' here.
+
+
+num = 10
+for num in range(5):
+    print(num)
+print(num)
+Correct: 0, 1, 2, 3, 4, 4
+
+
+divisor = 2
+for num in range(0, 10, 2):
+    print(num/divisor) 
+Correct: 0.0, 1.0, 2.0, 3.0, 4.0
+
+
+for variable in range(20):
+    if variable % 4 == 0:
+        print(variable)
+    if variable % 16 == 0:
+        print('Foo!') 
+Correct: 0, Foo!, 4, 8, 12, 16, Foo!
+
+
+for letter in 'hola':
+    print(letter)  
+Correct: h, o, l, a
+
+
+count = 0
+for letter in 'Snow!':
+    print('Letter # ' + str(count) + ' is ' + str(letter))
+    count += 1
+    break
+print(count)
+Correct: Letter # 0 is S, 1
+
+
+-----------
+Exercise 6
+
+Below are some short Python programs. For each program, answer the associated questions.
+
+Try to answer the questions without running the code. Check your answers, then run the code for the ones you get wrong. You'll learn the most this way, by figuring things out, instead of just running the code and reading off the answers.
+
+    myStr = '6.00x'
+
+    for char in myStr:
+        print(char)
+
+    print('done')
+    
+    
+How many times does 6 print out?
+Correct: 1
+
+How many times does . print out?
+Correct: 1
+
+How many times does 0 print out?
+Correct: 2
+
+How many times does x print out?
+Correct: 1
+
+How many times does done print out?
+Correct: 1
+
+
+greeting = 'Hello!'
+count = 0
+
+for letter in greeting:
+    count += 1
+    if count % 2 == 0:
+        print(letter)
+    print(letter)
+
+print('done')
+
+How many times does H print out?
+Correct: 1
+
+How many times does e print out? Disregard the letters in the word done.
+Correct: 2
+
+How many times does l print out?
+Correct: 3
+
+How many times does o print out? Disregard the letters in the word done.
+Correct: 1
+
+How many times does ! print out?
+Correct: 2
+
+How many times does done print out?
+Correct: 1
+
+
+school = 'Massachusetts Institute of Technology'
+numVowels = 0
+numCons = 0
+
+for char in school:
+    if char == 'a' or char == 'e' or char == 'i' \
+       or char == 'o' or char == 'u':
+        numVowels += 1
+    elif char == 'o' or char == 'M':
+        print(char)
+    else:
+        numCons -= 1
+
+print('numVowels is: ' + str(numVowels))
+print('numCons is: ' + str(numCons)) 
+
+    
+How many times does o print out? Disregard the o's in last two print statements.
+Correct: 0
+
+How many times does M print out?
+Correct: 1
+
+What will the value of the variable numVowels be?
+Correct: 11
+
+What will the value of the variable numCons be? 
+Correct: -25
+
+
+-----------
+Exercise 7
+
+Here is some code:
+
+Code Sample
+
+iteration = 0
+count = 0
+while iteration < 5:
+    for letter in "hello, world":
+        count += 1
+    print("Iteration " + str(iteration) + "; count is: " + str(count))
+    iteration += 1 
+
+We wish to re-write the above code, but instead of nesting a for loop inside a while loop, we want to nest a while loop inside a for loop. Which of the following loops gives the same output as the Code Sample?
+
+Try to answer the following questions by just reading the code. Reading code is a very good skill to have (and will help you both in your programming career and on your exams!). It is okay to check your answers that you obtain from just reading the code, then in your interpreter run the code for the ones you got wrong on your first attempt.
+
+Test 1 
+for iteration in range(5):
+    count = 0
+    while True:
+        for letter in "hello, world":
+            count += 1
+        print("Iteration " + str(iteration) + "; count is: " + str(count))
+        
+Yes, Test 1 gives the same output as the Code Sample
+Correct: No, Test 1 does not give the same output as the Code Sample
+
+        
+Test 2
+for iteration in range(5):
+    count = 0
+    while True:
+        for letter in "hello, world":
+            count += 1
+        print("Iteration " + str(iteration) + "; count is: " + str(count))
+        break
+
+Yes, Test 2 gives the same output as the Code Sample
+Correct: No, Test 2 does not give the same output as the Code Sample         
+        
+        
+Test 3
+count = 0
+phrase = "hello, world"
+for iteration in range(5):
+    index = 0
+    while index < len(phrase):
+        count += 1
+        index += 1
+    print("Iteration " + str(iteration) + "; count is: " + str(count))
+
+Correct: Yes, Test 3 gives the same output as the Code Sample
+No, Test 3 does not give the same output as the Code Sample 
+
+
+Test 4
+count = 0
+phrase = "hello, world"
+for iteration in range(5):
+    while True:
+        count += len(phrase)
+        break
+    print("Iteration " + str(iteration) + "; count is: " + str(count))
+
+Correct: Yes, Test 4 gives the same output as the Code Sample
+No, Test 4 does not give the same output as the Code Sample
+
+
+Test 5
+count = 0
+phrase = "hello, world"
+for iteration in range(5):
+    count += len(phrase)
+    print("Iteration " + str(iteration) + "; count is: " + str(count))
+
+Correct: Yes, Test 5 gives the same output as the Code Sample
+No, Test 5 does not give the same output as the Code Sample 
