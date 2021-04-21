@@ -1,0 +1,537 @@
+Exercise 1
+1: What method is called when an object is created? 
+
+Correct: __int__
+
+
+2: If you have an object instance, obj, and you want to call its doSomething() method 
+(assuming it has one), how would you do this? (write the line of code you would use) 
+
+Correct: obj.doSomething()
+
+
+3: True or False? An object's attributes must be defined in the object's __init__ method.
+
+Correct: False
+
+
+4:The following code starts the definition of a class called Address. The class needs to 
+have two attributes: number and streetName. Please add in the two lines of code that will 
+create these attributes from the appropriate passed in parameters. 
+
+class Address(object):
+    def __init__(self, number, streetName):
+        # Line 1: Creating a number attribute
+        # Line 2: Creating a streetName attribute  
+        
+What is the correct expression for # Line 1? 
+
+Correct:  self.number = number
+
+What is the correct expression for # Line 2? 
+
+Correct: self.streetName = streetName
+
+
+-----------
+Exercise 2
+
+1: Consider the following code:
+
+class Clock(object):
+    def __init__(self, time):
+	self.time = time
+    def print_time(self):
+	time = '6:30'
+	print(self.time)
+
+clock = Clock('5:30')
+clock.print_time()
+
+What does the code print out? If you aren't sure, create a Python file and run it.
+
+Correct: 5:30
+
+
+2: Consider the following code:
+
+class Clock(object):
+    def __init__(self, time):
+	self.time = time
+    def print_time(self, time):
+	print(time)
+
+clock = Clock('5:30')
+clock.print_time('10:30')
+
+What does the code print out? If you aren't sure, create a Python file and run it.
+
+Correct: 10:30
+
+
+3: Consider the following code:
+
+class Clock(object):
+    def __init__(self, time):
+        self.time = time
+    def print_time(self):
+        print(self.time)
+
+boston_clock = Clock('5:30')
+paris_clock = boston_clock
+paris_clock.time = '10:30'
+boston_clock.print_time()
+
+What does the code print out? If you aren't sure, create a Python file and run it.
+
+Correct: 10:30
+
+Are boston_clock and paris_clock different objects?
+
+Correct: No
+
+
+-----------
+Exercise 3
+
+Below is a transcript of a session with the Python shell. Provide the type and value of the 
+expressions being evaluated inside the print. If evaluating an expression would cause an 
+error, select NoneType and write error in the box. If the result is a function, select function 
+and write function in the box. As always, try to do this problem by hand before turning to 
+your interpreter for help.
+
+Assume the following definitions have been made:
+class Weird(object):
+    def __init__(self, x, y): 
+        self.y = y
+        self.x = x
+    def getX(self):
+        return x 
+    def getY(self):
+        return y
+
+class Wild(object):
+    def __init__(self, x, y): 
+        self.y = y
+        self.x = x
+    def getX(self):
+        return self.x 
+    def getY(self):
+        return self.y
+
+X = 7
+Y = 8
+
+
+1:
+w1 = Weird(X, Y)
+print(w1.getX())
+
+Correct: Nonetype error
+
+
+2:
+print(w1.getY())
+
+Correct: Nonetype error
+
+
+3:
+w2 = Wild(X, Y)
+print(w2.getX())
+
+Correct: int 7
+
+
+4:
+print(w2.getY())
+
+Correct: int 8
+
+
+5:
+w3 = Wild(17, 18)
+print(w3.getX())
+
+Correct: int 17
+
+
+6:
+print(w3.getY())
+
+Correct: int 18
+
+
+7:
+w4 = Wild(X, 18)
+print(w4.getX())
+
+Correct: int 7
+
+
+8:
+print(w4.getY())
+
+Correct: int 18
+
+
+9:
+X = w4.getX() + w3.getX() + w2.getX()
+print(X)
+
+Correct: int 31
+
+
+10:
+print(w4.getX())
+
+Correct: int 7
+
+
+11:
+Y = w4.getY() + w3.getY()
+Y = Y + w2.getY()
+print(Y)
+
+Correct: int 44
+
+
+12:
+print(w2.getY())
+
+Correct: int 8
+
+
+-----------
+Exercise: coordinate
+
+Consider the following code from the last lecture video:
+
+class Coordinate(object):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def getX(self):
+        # Getter method for a Coordinate object's x coordinate.
+        # Getter methods are better practice than just accessing an attribute directly
+        return self.x
+
+    def getY(self):
+        # Getter method for a Coordinate object's y coordinate
+        return self.y
+
+    def __str__(self):
+        return '<' + str(self.getX()) + ',' + str(self.getY()) + '>'
+Your task is to define the following two methods for the Coordinate class:
+
+    Add an __eq__ method that returns True if coordinates refer to same point in the plane 
+    (i.e., have the same x and y coordinate).
+
+    Define __repr__, a special method that returns a string that looks like a valid Python 
+    expression that could be used to recreate an object with the same value. In other words, 
+    eval(repr(c)) == c given the definition of __eq__ from part 1.
+
+    For more on __repr__, see:
+    https://stackoverflow.com/questions/452300/python-object-repr-self-should-be-an-expression
+    
+
+Correct:
+class Coordinate(object):
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+    def getX(self):
+        # Getter method for a Coordinate object's x coordinate.
+        # Getter methods are better practice than just accessing an attribute directly
+        return self.x
+
+    def getY(self):
+        # Getter method for a Coordinate object's y coordinate
+        return self.y
+
+    def __str__(self):
+        return '<'+str(self.getX())+','+str(self.getY())+'>'
+        
+    def __eq__(self, same):            
+        if self.x == same.x and self.y == same.y:
+            return True
+        else:
+            return False            
+            
+    def __repr__(self):
+        return 'Coordinate(' + str(self.getX()) + ',' + str(self.getY()) + ')'    
+    
+    
+-----------
+Exercise: int set
+
+Consider the following code from the last lecture video:
+
+class intSet(object):
+    """An intSet is a set of integers
+    The value is represented by a list of ints, self.vals.
+    Each int in the set occurs in self.vals exactly once."""
+
+    def __init__(self):
+        """Create an empty set of integers"""
+        self.vals = []
+
+    def insert(self, e):
+        """Assumes e is an integer and inserts e into self""" 
+        if not e in self.vals:
+            self.vals.append(e)
+
+    def member(self, e):
+        """Assumes e is an integer
+           Returns True if e is in self, and False otherwise"""
+        return e in self.vals
+
+    def remove(self, e):
+        """Assumes e is an integer and removes e from self
+           Raises ValueError if e is not in self"""
+        try:
+            self.vals.remove(e)
+        except:
+            raise ValueError(str(e) + ' not found')
+
+    def __str__(self):
+        """Returns a string representation of self"""
+        self.vals.sort()
+        return '{' + ','.join([str(e) for e in self.vals]) + '}'
+
+Your task is to define the following two methods for the intSet class:
+
+    Define an intersect method that returns a new intSet containing elements that appear in 
+    both sets. In other words,
+
+    s1.intersect(s2)
+
+    would return a new intSet of integers that appear in both s1 and s2. Think carefully - 
+    what should happen if s1 and s2 have no elements in common?
+
+    Add the appropriate method(s) so that len(s) returns the number of elements in s.
+
+    Hint: look through the Python docs (https://docs.python.org/3.3/reference/datamodel.html) 
+    to figure out what you'll need to solve this problem.
+
+Correct: 
+class intSet(object):
+    """An intSet is a set of integers
+    The value is represented by a list of ints, self.vals.
+    Each int in the set occurs in self.vals exactly once."""
+    
+    def __init__(self):
+        """Create an empty set of integers"""
+        self.vals = []
+
+    def insert(self, e):
+        """Assumes e is an integer and inserts e into self""" 
+        if not e in self.vals:
+            self.vals.append(e)
+
+    def member(self, e):
+        """Assumes e is an integer
+           Returns True if e is in self, and False otherwise"""
+        return e in self.vals
+
+    def remove(self, e):
+        """Assumes e is an integer and removes e from self
+           Raises ValueError if e is not in self"""
+        try:
+            self.vals.remove(e)
+        except:
+            raise ValueError(str(e) + ' not found')
+
+    def __str__(self):
+        """Returns a string representation of self"""
+        self.vals.sort()
+        return '{' + ','.join([str(e) for e in self.vals]) + '}'
+        
+    def intersect(self, other):
+        self.result = []
+        for i in self.vals:
+            if i in other.vals:
+                self.result.append(i)
+        return '{' + ','.join([str(f) for f in self.result]) + '}'
+        
+    def __len__(self):
+        self.count = 0
+        for i in self.vals:
+            self.count += 1
+        return self.count
+
+-----------
+Exercise: spell
+
+Consider the following code:
+
+class Spell(object):
+    def __init__(self, incantation, name):
+        self.name = name
+        self.incantation = incantation
+
+    def __str__(self):
+        return self.name + ' ' + self.incantation + '\n' + self.getDescription()
+              
+    def getDescription(self):
+        return 'No description'
+    
+    def execute(self):
+        print(self.incantation)
+
+
+class Accio(Spell):
+    def __init__(self):
+        Spell.__init__(self, 'Accio', 'Summoning Charm')
+
+class Confundo(Spell):
+    def __init__(self):
+        Spell.__init__(self, 'Confundo', 'Confundus Charm')
+
+    def getDescription(self):
+        return 'Causes the victim to become confused and befuddled.'
+
+def studySpell(spell):
+    print(spell)
+
+spell = Accio()
+spell.execute()
+studySpell(spell)
+studySpell(Confundo())
+
+1: What are the parent class(es)? Note that the term "parent class" is interchangable with 
+the term "superclass".
+
+Correct: Spell
+
+
+2: What are the child class(es)? Note that the term "child class" is interchangable with 
+the term "subclass".
+
+Correct: Accio & Confundo
+
+
+3: What does the code print out? Try figuring it out in your head before you try running 
+it in Python.
+
+Hint: This code prints out 5 lines. Enter each line that is printed out in its own box, 
+in sequential order.
+
+Correct:
+	1: Accio
+	2: Summoning Charm Accio
+	3: No description
+	4: Confundus Charm Confundo
+	5: Causes the victim to become confused and befuddled.
+
+	
+4: Which getDescription method is called when studySpell(Confundo()) is executed?
+
+Correct: The getDescription method defined within the Confundo class
+
+
+5: How do we need to modify Accio so that print(Accio()) will print the following description?
+
+Summoning Charm Accio
+This charm summons an object to the caster, potentially over a significant distance.
+
+Correct:
+class Accio(Spell):
+    def __init__(self):
+        Spell.__init__(self, 'Accio', 'Summoning Charm')
+    def getDescription(self):
+        return 'This charm summons an object to the caster, potentially over a significant distance.'
+
+
+-----------
+Exercise 4
+
+Python supports a limited form of multiple inheritance, demonstrated in the following code:
+
+class A(object):
+    def __init__(self):
+        self.a = 1
+    def x(self):
+        print("A.x")
+    def y(self):
+        print("A.y")
+    def z(self):
+        print("A.z")
+
+class B(A):
+    def __init__(self):
+        A.__init__(self)
+        self.a = 2
+        self.b = 3
+    def y(self):
+        print("B.y")
+    def z(self):
+        print("B.z")
+
+class C(object):
+    def __init__(self):
+        self.a = 4
+        self.c = 5
+    def y(self):
+        print("C.y")
+    def z(self):
+        print("C.z")
+
+class D(C, B):
+    def __init__(self):
+        C.__init__(self)
+        B.__init__(self)
+        self.d = 6
+    def z(self):
+        print("D.z")
+        
+Which __init__ methods are invoked and in which order is determined by the coding of the individual __init__ methods.
+
+When resolving a reference to an attribute of an object that's an instance of class D, Python first searches the object's instance variables then uses a simple left-to-right, depth first search through the class hierarchy. In this case that would mean searching the class C, followed the class B and its superclasses (ie, class A, and then any superclasses it may have, et cetera).
+
+With the definitions above if we define
+
+obj = D()
+
+1: 
+print(obj.a)
+
+Correct: 2
+
+
+2: 
+print(obj.b)
+
+Correct: 3
+
+
+3: 
+print(obj.c)
+
+Correct: 5
+
+
+4: 
+print(obj.d)
+
+Correct: 6
+
+
+5: 
+obj.x()
+
+Correct: A.x
+
+
+6: 
+obj.y()
+
+Correct: C.y
+
+
+7: 
+obj.z())
+
+Correct: D.z
